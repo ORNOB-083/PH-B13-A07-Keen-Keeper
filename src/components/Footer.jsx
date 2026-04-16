@@ -18,7 +18,6 @@ const Footer = () => {
   return (
     <footer className="bg-[#1e3d37] text-white pt-16 pb-8 px-4">
       <div className="container mx-auto">
-        {/* Main Footer Content */}
         <div className="flex flex-col items-center text-center">
           <h2 className="text-5xl font-bold tracking-tight mb-4">
             KeenKeeper
