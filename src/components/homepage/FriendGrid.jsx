@@ -36,7 +36,7 @@ const FriendGrid = () => {
     );
 
     return (
-        <section className="bg-[#f8f9fa] min-h-screen mx-auto px-45 pb-10">
+        <section className="bg-[#f8f9fa] min-h-screen mx-auto px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 pb-10">
             <h2 className="text-2xl font-bold text-slate-800 mb-8">Your Friends</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
