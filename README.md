@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🚀 KeenKeeper
+KeenKeeper is a sophisticated personal relationship management (PRM) tool designed to help users maintain consistent connections with their network. It acts as a Personal Knowledge Vault to track interactions and ensure no important relationship is overlooked.
 
-## Getting Started
+🛠️ Technologies Used
+Frontend: React.js with Next.js (App Router).
 
-First, run the development server:
+Styling: Tailwind CSS for high-fidelity UI/UX.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Icons: React Icons.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Charts: Recharts for interactive friendship analytics.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Notifications: React Toastify for real-time user feedback.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✨ Key Features
+Dynamic Friendship Dashboard: View all friends at a glance with status badges (Overdue, Almost Due, On-Track) and a search/filter system to manage your network efficiently.
 
-## Learn More
+Interaction Timeline: A comprehensive, searchable log of every interaction (Calls, Texts, Videos) with automated date tracking and custom icons.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Advanced Analytics: Visualized friendship data using donut charts to analyze interaction types and monitor progress toward relationship goals.
