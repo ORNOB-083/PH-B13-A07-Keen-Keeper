@@ -16,14 +16,14 @@ const FriendGrid = () => {
                     setLoading(false);
                 })
                 .catch((err) => console.error("Error loading friends:", err));
-        }, 2000);
+        }, 500);
         return () => clearTimeout(timer);
     }, []);
 
     const statusConfig = {
         "Overdue": "bg-red-500",
         "Almost Due": "bg-orange-400",
-        "On-Track": "bg-emerald-600",
+        "On-Track": "bg-[#244D3F]",
     };
 
     if (loading) return (
@@ -67,7 +67,7 @@ const FriendGrid = () => {
                                 {friend.tags?.map((tag, idx) => (
                                     <span
                                         key={idx}
-                                        className="px-3 py-1 text-[10px] font-bold tracking-wider rounded-full bg-slate-50 text-slate-500 uppercase border border-slate-100"
+                                        className="px-3 py-1 text-[10px] font-bold tracking-wider rounded-full bg-[#CBFADB] text-slate-500 uppercase border border-slate-100"
                                     >
                                         {tag}
                                     </span>

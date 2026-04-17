@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { SyncLoader } from "react-spinners";
@@ -12,10 +12,14 @@ import callIcon from "@/assets/call.png";
 import textIcon from "@/assets/text.png";
 import videoIcon from "@/assets/video.png";
 
+import { TimelineContext } from "@/context/timeline.context";
+
 const FriendDetails = () => {
   const { id } = useParams();
   const [friend, setFriend] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { timeline, setTimeline } = useContext(TimelineContext);
 
   useEffect(() => {
     const fetchFriend = async () => {
@@ -28,7 +32,7 @@ const FriendDetails = () => {
         setTimeout(() => {
           setFriend(found);
           setLoading(false);
-        }, 1200);
+        }, 500);
       } catch (error) {
         console.error("Failed to fetch friend data", error);
         setLoading(false);
@@ -38,25 +42,35 @@ const FriendDetails = () => {
   }, [id]);
 
   const handleAction = (actionType) => {
-    toast.success(`${actionType} logged for ${friend?.name || "Friend"}`);
+    if (!friend) return;
+
+    const newEntry = {
+      id: Date.now(),
+      type: actionType,
+      title: `${actionType} with ${friend.name}`,
+      date: new Date().toLocaleDateString(),
+    };
+
+    setTimeline([newEntry, ...timeline]);
+
+    toast.success(`${actionType} logged for ${friend.name}`);
   };
 
   if (loading) return (
     <div className="flex flex-col justify-center items-center min-h-[70vh]">
       <SyncLoader color="#1e3d37" />
-      <p className="mt-4 text-slate-500 text-sm italic">Loading profile...</p>
+      <p className="mt-4 text-slate-500 text-sm italic ">Loading profile...</p>
     </div>
   );
 
-  if (!friend) return <div className="text-center py-20 font-bold">Friend not found!</div>;
+  if (!friend) return <div className="text-center py-50 font-bold text-4xl">Friend not found!</div>;
 
   return (
-    <main className="bg-[#f8f9fa] min-h-screen py-8 md:py-16 px-4">
+    <main className="bg-[#f8f9fa] py-8 md:py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           <div className="lg:col-span-4 space-y-6">
-            {/* Profile Card */}
             <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm text-center">
               <div className="relative inline-block mb-4">
                 <img
@@ -110,7 +124,6 @@ const FriendDetails = () => {
           </div>
 
           <div className="lg:col-span-8 space-y-6">
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center">
                 <p className="text-4xl font-black text-[#244D3F]">{friend.days_since_contact}</p>
@@ -167,7 +180,6 @@ const FriendDetails = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>
